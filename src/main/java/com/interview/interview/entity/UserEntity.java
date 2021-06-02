@@ -1,15 +1,21 @@
+package com.interview.interview.entity;
+
+import lombok.Data;
+
+import javax.persistence.*;
+
 @Entity
-@Table(	name = "users",
-        uniqueConstraints = {
-                @UniqueConstraint(columnNames = "username")
-        })
+@Table(name = "users")
 @Data
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name="id")
+    private int id;
 
-    @NotBlank
-    @Size(max = 20)
-    private String username;
+    @Column(name="user_name")
+    private String userName;
+
+    @Column(name = "access_permission")
+    private Boolean accessPermission;
 }
